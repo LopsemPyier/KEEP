@@ -20,7 +20,7 @@ def importDictios():
     pass
 
 def encrypt():
-    res = keep.encrypt(window.communText.get(), window.encryptText.get(), window.dictioToUse.get(window.dictioToUse.curselection()))[1]
+    res = keep.encrypt(window.eCommunText.get(), window.eEncryptText.get(), window.eDictioToUse.get(window.eDictioToUse.curselection()))[1]
     window.encryptedTextVal.set(res)
     return res
 
@@ -28,3 +28,8 @@ def saveInFile():
     filePath = window._fileToSave()
     with open(filePath, "w") as f:
         f.write(encrypt())
+
+def decrypt():
+    res = keep.decrypt(window.dCommunText.get(), window.dEncryptText.get(), window.dDictioToUse.get(window.dDictioToUse.curselection()))[1]
+    window.decryptedTextVal.set(res)
+    return res

@@ -14,7 +14,7 @@ except FileExistsError :
     pass
 
 with open("settings/dictios.txt", "w") as f:
-    f.write("['default']")
+    f.write("[]")
 with open("settings/extensions.txt", "w") as f:
     f.write('dictionnariesFile : ".dictio"\nalphaFile : ".alpha"\nalphaHashFile : ".alphaHash"\ncaracFile : ".carac"\nkeysFile : ".keys"\nencryptS_File : ".keeps"\nencryptA_S_File : ".keepas"\n')
 
