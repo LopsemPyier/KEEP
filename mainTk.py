@@ -56,6 +56,7 @@ class Display():
         self.encryptedTextVal = tk.StringVar()
         self.encryptedTextL = tk.Label(self.encryptFrame, text = "The encrypted text : ")
         self.encryptedTextLab = tk.Entry(self.encryptFrame, textvariable = self.encryptedTextVal)
+        self.eCopyEncryptedTextButton = tk.Button(self.encryptFrame, text="Copy to clipboard", command=self.copy)
 
         self.dCommunText = tk.StringVar()
         self.dCommunTextLab = tk.Label(self.decryptFrame, text = "Enter the commun text : ")
@@ -125,6 +126,7 @@ class Display():
         self.eDictioToUse.selection_set(keep.allDictio.index("default"))
         self.encryptedTextL.pack()
         self.encryptedTextLab.pack()
+        self.eCopyEncryptedTextButton.pack()
 
     def decryptS(self):
         self.encryptKeepsButton.pack_forget()
@@ -215,6 +217,7 @@ class Display():
         self.decryptTextButton.pack_forget()
         self.decryptedTextL.pack_forget()
         self.decryptedTextLab.pack_forget()
+        self.eCopyEncryptedTextButton.pack_forget()
 
     def _import(self):
         self.filePath = tkF.askopenfilename(title = "Import other dictionnaries", filetypes = [("Dictionnaries file", ".dct"), ("Readable dictionnaries file", ".rdct"), ("All files", ".*")])
@@ -244,6 +247,10 @@ class Display():
 
     def _fileToSave(self):
         return tk.filedialog.asksaveasfilename(title = "Save encrypted text", filetypes = [("Text file", "*.txt"), ("All file", "*.*")])
+
+    def copy(self):
+        self.window.clipboard_clear()
+        self.window.clipboard_append(self.encryptedTextVal.get())
 
 clg.debugLevel()
 

@@ -132,10 +132,6 @@ def encrypt(communText, encryptText, dictioName):
     j = 0
     out = ""
     for i in encryptText:
-        clg.debug((dictio.get("alpha")).get("encrypt"))
-        clg.debug(i)
-        clg.debug(dictio.get("alpha").get("encrypt").get(i) + dictio.get("alphaHash").get("encrypt").get(hashCommunText[j]))
-        clg.debug(dictio.get("carac").get("decrypt"))
         out += ((dictio.get("carac")).get("decrypt")).get(((dictio.get("alpha")).get("encrypt")).get(i) + ((dictio.get("alphaHash")).get("encrypt")).get(hashCommunText[j]))
         j += 1
     return False, out
@@ -175,7 +171,7 @@ def removeDictio(dictioName):
     saveDictio()
     os.remove("dictionnaries/{}.dct".format(dictioName))
     try :
-        os.remove("dictionnaries/{}.rdct".format(dictioName))
+        os.remove("dictionnaries/readable_{}.rdct".format(dictioName))
     except FileNotFoundError :
         pass
 
